@@ -1,26 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <!--maven-archetype-quickstart-->
+  <groupId>QuantumVerify</groupId>
+  <artifactId>QuantumVerify</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
 
-    <!-- Project Identification -->
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>QuantumVerify</groupId>
-    <artifactId>QuantumVerify</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <description>A Maven project for Selenium-based automation tests using Java 17</description>
+  <name>QuantumVerify</name>
+  <url>http://maven.apache.org</url>
 
-    <!-- Properties Section for Version Management -->
-    <properties>
-        <java.version>17</java.version>
-        <selenium.version>4.23.0</selenium.version>
+  <properties>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     	<maven.compiler.source>17</maven.compiler.source>
+    	<maven.compiler.target>17</maven.compiler.target>
+    	<selenium.version>4.23.0</selenium.version>
         <junit.jupiter.version>5.11.0-M2</junit.jupiter.version>
         <maven.surefire.version>3.0.0-M5</maven.surefire.version>
-    </properties>
+  </properties>
 
-    <!-- Dependencies Section -->
-    <dependencies>
-        <!-- Selenium WebDriver -->
+  <dependencies>
+   		<!-- Selenium WebDriver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -42,33 +43,19 @@
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
-    </dependencies>
-
-    <!-- Build Configuration -->
-    <build>
+  </dependencies>
+  
+  <build>
         <plugins>
-            <!-- Maven Surefire Plugin for running tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven.surefire.version}</version>
+                <version>3.0.0-M5</version>
                 <configuration>
                     <useFile>false</useFile>
                     <printSummary>true</printSummary>
                 </configuration>
             </plugin>
-
-            <!-- Maven Compiler Plugin for specifying Java version -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
-
 </project>
