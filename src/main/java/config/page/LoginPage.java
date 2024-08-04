@@ -1,39 +1,50 @@
 package config.page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage implements Page {
 	private static WebDriver driver;
 
-    private By usernameLocator = By.id("username");
-    private By passwordLocator = By.id("password");
-    private By loginButtonLocator = By.xpath("//input[@value='Log In']");
+	@FindBy(id = "username")
+	private WebElement usernameInput;
 
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
-    }
+	@FindBy(id = "password")
+	private WebElement passwordInput;
+	
+	@FindBy(xpath = "//button[contains(@type,'submit')]")
+	private WebElement loginSubmit;
+	
+	@FindBy(id = "flash")
+	private WebElement successInfo;
 
-    public void enterUsername(String username) {
-        WebElement usernameInput = driver.findElement(usernameLocator);
-        usernameInput.clear();
-        usernameInput.sendKeys(username);
-    }
+	public LoginPage(WebDriver driver) {
+		this.driver = driver;
+	}
 
-    public void enterPassword(String password) {
-        WebElement passwordInput = driver.findElement(passwordLocator);
-        passwordInput.clear();
-        passwordInput.sendKeys(password);
-    }
+	public void enterUsername(String username) {
+		usernameInput.clear();
+		usernameInput.sendKeys(username);
+	}
 
-    public void clickLogin() {
-        driver.findElement(loginButtonLocator).click();
-    }
+	public void enterPassword(String password) {
+		passwordInput.clear();
+		passwordInput.sendKeys(password);
+	}
+
+	public void clickLogin() {
+		loginSubmit.click();
+	}
 
 	@Override
-	public void open(String url) {
+	public void get(String url) {
 		driver.get(url);
+	}
+
+	@Override
+	public String findText() {
+		return successInfo.getText();
 	}
 
 }

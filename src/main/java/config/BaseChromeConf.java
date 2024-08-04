@@ -1,44 +1,39 @@
 package config;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.Duration;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import config.handler.AdHandler;
-import config.page.LoginPage;
-import config.page.WebDriverSingleton;
+import config.page.WebDriverConfig;
+
 
 public class BaseChromeConf {
 
 	protected static WebDriver driver = null;
-	private static String browserName = "chrome";
-	private static LoginPage loginPage;
-	protected WebDriverWait wait = null;
-	protected JavascriptExecutor js = null;
-	protected AdHandler adHandler = null;
+	protected static WebDriverWait wait = null;
+	protected static JavascriptExecutor js = null;
+	protected static AdHandler adHandler = null;
 
-	@Before
-	public void initConfig() {
-		driver = WebDriverSingleton.getDriver();
+	@BeforeAll
+	public static void initConfig() {
+		driver = WebDriverConfig.getDriver();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		js = (JavascriptExecutor) driver;
 		adHandler = new AdHandler(driver);
 	}
 
-	@After
+	@AfterEach
 	public void cleanUp() {
 		driver.manage().deleteAllCookies();
 	}
 
-	@AfterClass
+	@AfterAll
 	public static void quitDriver() {
 		driver.close();
 	}

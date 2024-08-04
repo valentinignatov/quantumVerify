@@ -1,13 +1,11 @@
 package test;
 
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -25,7 +23,7 @@ import java.time.Duration;
 
 public class LoginTest extends BaseChromeConf {
 
-	@Test
+//	@Test
     public void logIn() {
         Path path = Paths.get("driver",  "chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", path.toAbsolutePath().toString());
@@ -63,13 +61,24 @@ public class LoginTest extends BaseChromeConf {
         }
     }
 	
-//	@Test
-//    public void logIn2() {
-//		driver.get(null);
-//		Page loginPage = PageFactory.getPage("login", driver);
-//        loginPage.enterUsername("testuser");
-//        loginPage.enterPassword("testpass");
-//        loginPage.clickLogin();
-//	}
+	@Test
+    public void logIn2() {
+		Page loginPage = PageFactory.getPage("login", driver);
+		
+		loginPage.get("https://practice.expandtesting.com/login");
+		adHandler.closeAdIfPresent();
+		
+        ((LoginPage) loginPage).enterUsername("practice");
+        adHandler.closeAdIfPresent();
+        
+        ((LoginPage) loginPage).enterPassword("SuperSecretPassword!");
+        adHandler.closeAdIfPresent();
+        
+        loginPage.scroll(wait, js, "button[type='submit']");
+        
+        ((LoginPage) loginPage).clickLogin();
+        
+        assertEquals(((WebElement) loginPage).getText(), "You logged into a secure area!");
+	}
 
 }
