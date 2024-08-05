@@ -14,8 +14,7 @@ public class LoginTest extends BaseChromeConf {
 	public void logIn() {
 		LoginPage loginPage = (LoginPage) PageFactory.getPage("login", driver);
 
-		//TODO add basic url for each page https://practice.expandtesting.com/login
-		loginPage.get("https://practice.expandtesting.com/login");
+		loginPage.get();
 		adHandler.closeAdIfPresent();
 
 		loginPage.enterUsername("practice");

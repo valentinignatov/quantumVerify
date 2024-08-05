@@ -44,8 +44,8 @@ public class LoginPage extends Page {
 		loginSubmit.click();
 	}
 	
-	public void get(String url) {
-		driver.get(url);
+	public void get() {
+		driver.get("https://practice.expandtesting.com/login");
 		driver.manage().window().maximize();
 	}
 	
