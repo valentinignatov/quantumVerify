@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import config.handler.AdHandler;
-import config.page.WebDriverConfig;
 
 
 public class BaseChromeConf {

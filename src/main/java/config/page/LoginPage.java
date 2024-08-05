@@ -1,11 +1,16 @@
 package config.page;
 
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage implements Page {
-	private static WebDriver driver;
+public class LoginPage extends Page {
 
 	@FindBy(id = "username")
 	private WebElement usernameInput;
@@ -20,7 +25,7 @@ public class LoginPage implements Page {
 	private WebElement successInfo;
 
 	public LoginPage(WebDriver driver) {
-		this.driver = driver;
+		super(driver);
 	}
 
 	public void enterUsername(String username) {
@@ -34,16 +39,17 @@ public class LoginPage implements Page {
 	}
 
 	public void clickLogin() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(loginSubmit));
 		loginSubmit.click();
 	}
-
-	@Override
+	
 	public void get(String url) {
 		driver.get(url);
+		driver.manage().window().maximize();
 	}
-
-	@Override
-	public String findText() {
+	
+	public String findSuccesText() {
 		return successInfo.getText();
 	}
 

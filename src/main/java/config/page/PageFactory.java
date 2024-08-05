@@ -4,17 +4,20 @@ import org.openqa.selenium.WebDriver;
 
 public class PageFactory {
 
-	public static Page getPage(String pageType, WebDriver driver) {
+	public static <T extends Page> T getPage(String pageType, WebDriver driver) {
 		switch (pageType.toLowerCase()) {
 		
 		case "login":
-			return new LoginPage(driver);
+			return (T) new LoginPage(driver);
 
 		case "otp":
 			// return new OtpPage(driver);
 			
 		case "oauth":
 			// return new OAuthPage(driver);
+			
+		case "webinput":
+			return (T) new WebInputPage(driver);
 			
 		default:
 			throw new IllegalArgumentException("Unknown page type: " + pageType);
