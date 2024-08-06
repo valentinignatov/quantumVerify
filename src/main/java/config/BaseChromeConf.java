@@ -2,12 +2,11 @@ package config;
 
 import java.time.Duration;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeTest;
 
 import config.handler.AdHandler;
 
@@ -19,7 +18,7 @@ public class BaseChromeConf {
 	protected static JavascriptExecutor js = null;
 	protected static AdHandler adHandler = null;
 
-	@BeforeAll
+	@BeforeTest
 	public static void initConfig() {
 		driver = WebDriverConfig.getDriver();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -27,12 +26,12 @@ public class BaseChromeConf {
 		adHandler = new AdHandler(driver);
 	}
 
-	@AfterEach
+	@AfterClass
 	public void cleanUp() {
 		driver.manage().deleteAllCookies();
 	}
 
-	@AfterAll
+	@AfterClass
 	public static void quitDriver() {
 		driver.close();
 	}

@@ -1,16 +1,15 @@
 package test;
 
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import config.*;
-import config.page.*;
-
-import static org.junit.jupiter.api.Assertions.*;
+import config.BaseChromeConf;
+import config.page.LoginPage;
+import config.page.PageFactory;
+import org.testng.Assert;
 
 public class LoginTest extends BaseChromeConf {
 
-	@Test
+	@org.testng.annotations.Test
 	public void logIn() {
 		LoginPage loginPage = (LoginPage) PageFactory.getPage("login", driver);
 
@@ -33,7 +32,7 @@ public class LoginTest extends BaseChromeConf {
 
 		loginPage.clickLogin();
 
-		assertEquals(loginPage.findSuccesText(), "You logged into a secure area!");
+		Assert.assertEquals(loginPage.findSuccesText(), "You logged into a secure area!");
 	}
 
 }

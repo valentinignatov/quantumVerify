@@ -1,20 +1,19 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import config.*;
-import config.page.*;
+import config.BaseChromeConf;
+import config.page.PageFactory;
+import config.page.WebInputPage;
 import util.DateFormatChanger;
+import org.testng.Assert;
 
 public class WebInputTest extends BaseChromeConf {
 
-	@Test
+	@org.testng.annotations.Test
 	public void input() {
 		
 		WebInputPage webInputsPage = (WebInputPage)PageFactory.getPage("webInput", driver);
@@ -41,13 +40,13 @@ public class WebInputTest extends BaseChromeConf {
 		
 		webInputsPage.displayOutput();
 		
-		assertEquals("20", webInputsPage.getInsertedNumber());
+		Assert.assertEquals("20", webInputsPage.getInsertedNumber());
 		
-		assertEquals(textInput, webInputsPage.getInsertedText());
+		Assert.assertEquals(textInput, webInputsPage.getInsertedText());
 		
-		assertEquals(password, webInputsPage.getInsertedPassword());
+		Assert.assertEquals(password, webInputsPage.getInsertedPassword());
 		
-		assertEquals(formattedDate, new DateFormatChanger().changeDateFormat(webInputsPage.getInsertedDate()));
+		Assert.assertEquals(formattedDate, new DateFormatChanger().changeDateFormat(webInputsPage.getInsertedDate()));
 		
 	}
 }
