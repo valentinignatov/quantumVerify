@@ -5,7 +5,6 @@ import java.nio.file.Paths;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 public class WebDriverConfig {
 	private static WebDriver driver;

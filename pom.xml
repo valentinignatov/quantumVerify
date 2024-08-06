@@ -17,7 +17,7 @@
     	<maven.compiler.target>17</maven.compiler.target>
     	<selenium.version>4.23.0</selenium.version>
         <junit.jupiter.version>5.11.0-M2</junit.jupiter.version>
-        <maven.surefire.version>3.0.0-M5</maven.surefire.version>
+        <maven.surefire.version>3.3.1</maven.surefire.version>
         <testng.version>7.7.1</testng.version>
   </properties>
 
@@ -55,6 +55,7 @@
     		<groupId>org.testng</groupId>
     		<artifactId>testng</artifactId>
     		<version>${testng.version}</version>
+    		<scope>compile</scope>
 		</dependency>
 		
   </dependencies>
@@ -66,9 +67,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.version}</version>
                 <configuration>
-                    <includes>
-                        <include>**/*Test.java</include>
-                    </includes>
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>

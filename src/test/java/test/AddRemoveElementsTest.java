@@ -1,16 +1,9 @@
 package test;
 
-import java.util.Collections;
 import java.util.List;
-import org.testng.TestNG;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import config.BaseChromeConf;
@@ -23,7 +16,7 @@ public class AddRemoveElementsTest extends BaseChromeConf {
 //	        testng.run();
 //	    }
 
-//	@Test
+	@Test
 	public void testAddAndRemoveElements() throws InterruptedException {
 		// Navigate to the web page
 		driver.get("https://practice.expandtesting.com/add-remove-elements");
