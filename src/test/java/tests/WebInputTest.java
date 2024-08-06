@@ -1,4 +1,4 @@
-package test;
+package tests;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,10 +10,11 @@ import config.page.PageFactory;
 import config.page.WebInputPage;
 import util.DateFormatChanger;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class WebInputTest extends BaseChromeConf {
 
-	@org.testng.annotations.Test
+	@Test
 	public void input() {
 		
 		WebInputPage webInputsPage = (WebInputPage)PageFactory.getPage("webInput", driver);

@@ -1,4 +1,4 @@
-package test;
+package tests;
 
 import org.openqa.selenium.By;
 
@@ -6,14 +6,16 @@ import config.BaseChromeConf;
 import config.page.LoginPage;
 import config.page.PageFactory;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class LoginTest extends BaseChromeConf {
 
-	@org.testng.annotations.Test
+	@Test
 	public void logIn() {
 		LoginPage loginPage = (LoginPage) PageFactory.getPage("login", driver);
 
 		loginPage.get();
+		loginPage.scroll(wait, js, By.xpath("//*[@id=\"login\"]/button"));
 		adHandler.closeAdIfPresent();
 
 		loginPage.enterUsername("practice");
@@ -21,14 +23,6 @@ public class LoginTest extends BaseChromeConf {
 
 		loginPage.enterPassword("SuperSecretPassword!");
 		adHandler.closeAdIfPresent();
-
-		loginPage.scroll(wait, js, By.xpath("//*[@id=\"login\"]/button"));
-
-		try {
-			Thread.sleep(100);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 
 		loginPage.clickLogin();
 

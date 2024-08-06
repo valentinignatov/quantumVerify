@@ -19,6 +19,7 @@
         <junit.jupiter.version>5.11.0-M2</junit.jupiter.version>
         <maven.surefire.version>3.3.1</maven.surefire.version>
         <testng.version>7.7.1</testng.version>
+        <slf4j.version>2.0.13</slf4j.version>
   </properties>
 
   <dependencies>
@@ -58,6 +59,13 @@
     		<scope>compile</scope>
 		</dependency>
 		
+		<!-- SLF4J-->
+		<dependency>
+    		<groupId>org.slf4j</groupId>
+    		<artifactId>slf4j-api</artifactId>
+    		<version>${slf4j.version}</version>
+		</dependency>
+
   </dependencies>
   
   <build>
@@ -67,6 +75,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.version}</version>
                 <configuration>
+					<includes>
+            			<include>tests/*Test.java</include>
+        			</includes>
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
