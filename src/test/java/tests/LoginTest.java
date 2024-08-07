@@ -1,12 +1,12 @@
 package tests;
 
-import config.BaseChromeConf;
+import config.BaseTestConf;
 import config.page.LoginPage;
 import config.page.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginTest extends BaseChromeConf {
+public class LoginTest extends BaseTestConf {
 
 	@Test
 	public void logIn() {

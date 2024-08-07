@@ -3,14 +3,14 @@ package tests;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import config.BaseChromeConf;
+import config.BaseTestConf;
 import config.page.PageFactory;
 import config.page.WebInputPage;
 import util.DateFormatChanger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class WebInputTest extends BaseChromeConf {
+public class WebInputTest extends BaseTestConf {
 
 	@Test
 	public void input() {

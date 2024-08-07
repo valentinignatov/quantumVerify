@@ -7,9 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import config.BaseChromeConf;
+import config.BaseTestConf;
 
-public class AddRemoveElementsTest extends BaseChromeConf {
+public class AddRemoveElementsTest extends BaseTestConf {
 
 	@Test
 	public void testAddAndRemoveElements() throws InterruptedException {
