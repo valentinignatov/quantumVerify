@@ -22,11 +22,11 @@ public class AddRemoveElementsTest extends BaseChromeConf {
 		
 		addRemPage.addElement(elements);
 		
-		Assert.assertEquals(addRemPage.checkAddedElements(), 100, "Number of added elements should be 100");
+		Assert.assertEquals(addRemPage.checkAddedElements(), elements, "Number of added elements should be 100");
 		
 		addRemPage.removeElements(elements);
 		
-		Assert.assertEquals(addRemPage.checkAddedElements(), 0, "\"All elements should be removed");
+		Assert.assertEquals(addRemPage.checkAddedElements(), 0, "All elements should be removed");
 	}
 
 }

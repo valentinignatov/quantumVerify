@@ -1,7 +1,5 @@
 package tests;
 
-import org.openqa.selenium.By;
-
 import config.BaseChromeConf;
 import config.page.LoginPage;
 import config.page.PageFactory;
@@ -15,18 +13,15 @@ public class LoginTest extends BaseChromeConf {
 		LoginPage loginPage = (LoginPage) PageFactory.getPage("login", driver);
 
 		loginPage.get();
-		loginPage.scroll(wait, js, By.xpath("//*[@id=\"login\"]/button"));
-		adHandler.closeAdIfPresent();
+		loginPage.scroll(wait, js);
 
 		loginPage.enterUsername("practice");
-		adHandler.closeAdIfPresent();
 
 		loginPage.enterPassword("SuperSecretPassword!");
-		adHandler.closeAdIfPresent();
 
 		loginPage.clickLogin();
 
 		Assert.assertEquals(loginPage.findSuccesText(), "You logged into a secure area!");
 	}
-
+	//TODO add db and csv file support
 }

@@ -3,8 +3,6 @@ package tests;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.openqa.selenium.By;
-
 import config.BaseChromeConf;
 import config.page.PageFactory;
 import config.page.WebInputPage;
@@ -21,7 +19,7 @@ public class WebInputTest extends BaseChromeConf {
 		
 		webInputsPage.get();
 		
-		webInputsPage.scroll(wait, js, By.id("input-date"));
+		webInputsPage.scroll(wait, js);
 		
 		String number = "10";
 		String textInput = "Valentin Ignatov Test";

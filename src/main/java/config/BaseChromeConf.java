@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import config.handler.AdHandler;
@@ -26,12 +27,12 @@ public class BaseChromeConf {
 		adHandler = new AdHandler(driver);
 	}
 
-	@AfterClass
+	@AfterTest
 	public void cleanUp() {
 		driver.manage().deleteAllCookies();
 	}
 
-	@AfterClass
+	@AfterTest
 	public static void quitDriver() {
 		driver.close();
 	}
