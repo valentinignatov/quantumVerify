@@ -1,0 +1,18 @@
+my-cucumber-project/
+│
+├── src/
+│   ├── main/
+│   │   └── java/
+│   │       └── (your main packages and classes)
+│   │
+│   └── test/
+│       ├── java/
+│       │   ├── steps/             (Step Definitions)
+│       │   ├── runner/            (Cucumber Runner)
+│       │   ├── config/            (Configuration and Utilities)
+│       │   └── hooks/             (Cucumber Hooks)
+│       │
+│       └── resources/
+│           └── features/          (Feature Files)
+│
+└── pom.xml

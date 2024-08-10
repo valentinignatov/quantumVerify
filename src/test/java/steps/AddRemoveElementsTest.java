@@ -1,4 +1,4 @@
-package tests;
+package steps;
 
 import config.page.*;
 import java.util.List;
