@@ -1,4 +1,4 @@
-package config.page;
+package pageobjects;
 
 import org.openqa.selenium.WebDriver;
 
@@ -18,6 +18,9 @@ public class PageFactory {
 			
 		case "webinput":
 			return (T) new WebInputPage(driver);
+			
+		case "addremove":
+			return (T) new AddRemovePage(driver);
 			
 		default:
 			throw new IllegalArgumentException("Unknown page type: " + pageType);

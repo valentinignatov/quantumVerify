@@ -1,4 +1,4 @@
-package config.page;
+package pageobjects;
 
 import java.util.stream.IntStream;
 

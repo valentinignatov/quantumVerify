@@ -21,7 +21,6 @@ public class SeleniumHooks {
 
     @Before
     public void setUp() {
-        // Ensure WebDriver is set up here; assume WebDriverConfig handles the specifics
         driver = new WebDriverConfig().getDriver("chrome");
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		js = (JavascriptExecutor) driver;

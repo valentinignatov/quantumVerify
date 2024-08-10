@@ -1,12 +1,12 @@
 package steps;
 
 import config.handler.AdHandler;
-import config.page.LoginPage;
-import config.page.PageFactory;
 import hooks.SeleniumHooks;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageobjects.LoginPage;
+import pageobjects.PageFactory;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

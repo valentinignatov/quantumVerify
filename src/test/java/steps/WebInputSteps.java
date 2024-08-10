@@ -1,11 +1,11 @@
 package steps;
 
-import config.page.WebInputPage;
-import config.page.PageFactory;
 import hooks.SeleniumHooks;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import pageobjects.PageFactory;
+import pageobjects.WebInputPage;
 import util.DateFormatChanger;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;

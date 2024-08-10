@@ -1,10 +1,13 @@
 package steps;
 
-import config.page.AddRemovePage;
 import hooks.SeleniumHooks;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageobjects.AddRemovePage;
+import pageobjects.PageFactory;
+import pageobjects.WebInputPage;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -15,7 +18,7 @@ public class ElementOperationsSteps  {
 
     @Given("I am on the Add Remove page")
     public void i_am_on_the_add_remove_page() {
-        addRemPage = new AddRemovePage(driver);
+        addRemPage = (AddRemovePage) PageFactory.getPage("addRemove", driver);
         addRemPage.get();
     }
 
