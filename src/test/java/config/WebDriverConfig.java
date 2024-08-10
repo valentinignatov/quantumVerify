@@ -16,7 +16,7 @@ import org.openqa.selenium.firefox.ProfilesIni;
 public class WebDriverConfig {
 	private WebDriver driver;
 
-	WebDriverConfig() {
+	public WebDriverConfig() {
 	}
 
 	public WebDriver getDriver(String browser) {
